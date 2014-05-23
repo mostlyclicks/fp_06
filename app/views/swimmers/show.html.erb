@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @swimmer.name %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @swimmer.about %>
+</p>
+
+<%= link_to 'Edit', edit_swimmer_path(@swimmer) %> |
+<%= link_to 'Back', swimmers_path %>
