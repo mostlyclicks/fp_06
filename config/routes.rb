@@ -1,5 +1,6 @@
 Fp06::Application.routes.draw do
   resources :swimmers
+  resources :subscribe
 
   get "home/index"
   devise_for :users

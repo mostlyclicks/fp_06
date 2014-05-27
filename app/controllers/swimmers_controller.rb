@@ -1,10 +1,14 @@
 class SwimmersController < ApplicationController
   before_action :set_swimmer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /swimmers
   # GET /swimmers.json
   def index
     #@swimmers = Swimmer.all
+    if !current_user.subscribed
+      redirect_to new_subscribe_path, :notice => "To create or edit your page you must subcribe"
+    end
     @swimmers = Swimmer.where(:user_id => current_user.id)
   end
 

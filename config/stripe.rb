@@ -6,3 +6,5 @@ Rails.configuration.stripe = {
 }
 
 stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+#https://www.youtube.com/watch?v=kp-9Ac5wTxY 10:29
