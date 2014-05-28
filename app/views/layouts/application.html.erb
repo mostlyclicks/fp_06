@@ -4,7 +4,12 @@
   <title>Fp06</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <%#= javascript_include_tag "https://js.stripe.com/v2/", "application" %>
   <%= csrf_meta_tags %>
+  <%#= tag :meta, :name => "stripe-key", &crarr; 
+    :content => STRIPE_PUBLISHABLE_KEY %>
 </head>
 <body>
 
@@ -18,7 +23,7 @@
 <% flash.each do |name, message| %>
   <%= content_tag :div, message, :id => "flash_#{name}" %>
 <% end %>
-
+<i class="fa fa-university"></i> hello
 <%= yield %>
 
 </body>

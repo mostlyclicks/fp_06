@@ -8,6 +8,7 @@ class SubscribeController < ApplicationController
   def update
     #Get the credit card details submitted by the form
     token = params[:stripeToken]
+    @amount = 499
 
     #create a customer
     customer = Stripe::Customer.create(
@@ -16,11 +17,18 @@ class SubscribeController < ApplicationController
       :email => current_user.email
     )
 
+    charge = Stripe::Charge.create(
+      :customer => customer.id,
+      :amount => @amount,
+      :description => 'Month subscription',
+      :currency => 'usd'
+    )
+
     current_user.subscribed = true
     current_user.stripeid = customer.id
     current_user.save
 
-    redirect _to swimmers_index_path, :notice => "Your subscription was setup! You may now make your page!"
+    redirect_to swimmers_path, :notice => "Your subscription was setup! You may now make your page!"
 
   end
 end
